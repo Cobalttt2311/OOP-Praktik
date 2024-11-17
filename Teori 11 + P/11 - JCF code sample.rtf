@@ -1,0 +1,245 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11880\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 //contoh enumeration\
+public class EnumClass \{\
+    enum Level \{\
+        LOW, MEDIUM, HIGH;\
+    \}\
+\
+    public static void main(String[] args) \{\
+        Level myVar = Level.MEDIUM;\
+        System.out.println(myVar);\
+        \
+        switch (myVar) \{\
+        case LOW :\
+            System.out.println("Low Level");\
+            break;\
+        case MEDIUM :\
+            System.out.println("Medium Level");\
+            break;\
+        case HIGH :\
+            System.out.println("High Level");\
+            break;\
+        \}\
+ \
+        for (Level myLevel : Level.values()) \{\
+            System.out.println("Level: " + myLevel);\
+        \}\
+    \}\
+\}\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 =====================================================================\
+\
+//Contoh : Generic Class\
+class Cell<T> \{\
+    private T nilai;\
+\
+    public T getNilai() \{\
+        return nilai;\
+    \}\
+    \
+    public void setNilai(T nilai) \{\
+        this.nilai = nilai;\
+    \}\
+\}\
+\
+public class CellDriver \{\
+    public static void main(String[] args) \{\
+        Cell<Integer> cellInteger = new Cell<>();\
+        Cell<String> cellString = new Cell<>();\
+\
+        cellInteger.setNilai(1);\
+        cellString.setNilai("It's amazing");\
+\
+        System.out.println("Nilai Integer: " + cellInteger.getNilai());\
+        System.out.println("Nilai String: " + cellString.getNilai());\
+    \}\
+\}\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 =====================================================================\
+//Contoh : Generic Method\
+public class GenericMethodClass \{\
+\
+    public static <T> void printArray(T[] array) \{\
+        for (T arrayItem : array) \{\
+            System.out.print(arrayItem + " ");\
+        \}\
+       // System.out.println();\
+    \}\
+\
+    public static void main(String[] args) \{\
+        Integer[] intArray = \{ 1, 2, 3, 4, 5 \};\
+        String[] stringArray = \{ "This", "is", "extraordinary" \};\
+\
+        System.out.print("Array Integer: ");\
+        printArray(intArray);\
+\
+        System.out.print("\\nArray String: ");\
+        printArray(stringArray);\
+    \}\
+\}\
+\
+=====================================================================\
+=====================================================================\
+\
+//contoh array list arrrayList JCF\
+import java.util.ArrayList;\
+\
+public class Kelas2CArrayListGeneric \{\
+    public static void main(String[] args) \{\
+        // pembuatan generic collection \
+        ArrayList<String> listNamaMahasiswa = new ArrayList<>();  \
+        \
+        listNamaMahasiswa.add("Afriza");\
+        listNamaMahasiswa.add("Haikal");\
+        listNamaMahasiswa.add("Ryuki");\
+\
+        System.out.println("Size Set Nama:"+ listNamaMahasiswa.size());\
+        for (String nama : listNamaMahasiswa) \{  \
+            System.out.println(nama);\
+        \}\
+\
+       try \{\
+            listNamaMahasiswa.remove(2);\
+            System.out.println("Size Set Nama:"+ listNamaMahasiswa.size());\
+            for (String nama : listNamaMahasiswa) \{  \
+               System.out.println(nama);\
+             \}\
+        \} catch(Exception e) \{\
+            System.out.println("terjadi kesalahan ");\
+        \}\
+\
+    \}\
+\}\
+\
+=====================================================================\
+// cpnpth hashset\
+\pard\pardeftab720\partightenfactor0
+\cf0 import java.util.HashSet;\
+import java.util.Set;\
+\
+public class ContohSet \{\
+    public static void main(String[] args) \{\
+        Set<String> namaSet = new HashSet<>();\
+        namaSet.add("Afriza");\
+        namaSet.add("Haikal");\
+        namaSet.add("Ryuki");  \
+        namaSet.add("Afriza");\
+        namaSet.add("Haikal");\
+        namaSet.add("Afriza");\
+        namaSet.add("Haikal");\
+        \
+        System.out.println("Size Set Nama:"+ namaSet.size());\
+\
+\
+        System.out.println("Set Nama:");\
+        for (String nama : namaSet) \{\
+            System.out.println(nama);\
+        \}\
+    \}\
+\}\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 =====================================================================\
+// cpnpth hashset vs treeset\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+import java.util.HashSet;\
+import java.util.TreeSet;\
+import java.util.Set;\
+\
+public class PerbedaanHashSetTreeSet \{\
+    public static void main(String[] args) \{\
+        // HashSet - Tidak menjamin urutan\
+        Set<String> hashSet = new HashSet<>();\
+        hashSet.add("Agra");\
+        hashSet.add("Isyana");\
+        hashSet.add("Jihan");\
+        hashSet.add("Syahla");\
+\
+        System.out.println("HashSet (tidak berurutan):");\
+        for (String nama : hashSet) \{\
+            System.out.println(nama);\
+        \}\
+\
+        // TreeSet - Urut secara alami (alfabetis)\
+        Set<String> treeSet = new TreeSet<>();\
+        treeSet.add("Syahla");\
+        treeSet.add("Agra");\
+        treeSet.add("Isyana");\
+        treeSet.add("Jihan");\
+\
+        System.out.println("\\nTreeSet (urutan alami):");\
+        for (String nama : treeSet) \{\
+            System.out.println(nama);\
+        \}\
+    \}\
+\}\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 =====================================================================\
+//contoh hashmap	\
+\pard\pardeftab720\partightenfactor0
+\cf0 import java.util.HashMap;\
+import java.util.Map;\
+\
+public class ContohMap \{\
+    public static void main(String[] args) \{\
+        Map<String, String> noHandphone = new HashMap<>();\
+        noHandphone.put("Alqan", "08123456789");\
+        noHandphone.put("Restu", "08198765432");\
+        noHandphone.put("Restu", "08100000000");  // Menimpa nilai sebelumnya untuk kunci "Alqan"\
+\
+        System.out.println("No Telepon:");\
+        for (String nama : noHandphone.keySet()) \{\
+            System.out.println("Nama: " + nama + ", Nomor: " + noHandphone.get(nama));\
+        \}\
+    \}\
+\}\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 =====================================================================\
+\pard\pardeftab720\partightenfactor0
+\cf0 //perbedaan hashmap dan treemap\
+import java.util.HashMap;\
+import java.util.Map;\
+import java.util.TreeMap;\
+\
+public class PerbedaanHashMapTreeMap \{\
+    public static void main(String[] args) \{\
+        // HashMap - Tidak menjamin urutan\
+        Map<String, Integer> hashMap = new HashMap<>();\
+        hashMap.put("Aulia", 18);\
+        hashMap.put("Dio", 22);\
+        hashMap.put("Wildan", 21);\
+        hashMap.put("Sifa", 20);\
+\
+        System.out.println("HashMap (tidak berurutan):");\
+        for (Map.Entry<String, Integer> entry : hashMap.entrySet()) \{\
+            System.out.println("Nama: " + entry.getKey() + ", Umur: " + entry.getValue());\
+        \}\
+\
+        // TreeMap - Urut secara alami (berdasarkan kunci)\
+        Map<String, Integer> treeMap = new TreeMap<>();\
+        treeMap.put("Aulia", 18);\
+        treeMap.put("Dio", 22);\
+        treeMap.put("Wildan", 21);\
+        treeMap.put("Sifa", 20);\
+\
+        System.out.println("\\nTreeMap (urutan alami):");\
+        for (Map.Entry<String, Integer> entry : treeMap.entrySet()) \{\
+            System.out.println("Nama: " + entry.getKey() + ", Umur: " + entry.getValue());\
+        \}\
+    \}\
+\}\
+}
